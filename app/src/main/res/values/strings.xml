@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">DemoPlayer</string>
+
+    <string name="hint_search_artist">Search artist</string>
+    <string name="hint_no_songs">No tracks</string>
+
+</resources>
