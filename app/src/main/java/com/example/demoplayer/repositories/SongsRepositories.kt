@@ -14,15 +14,15 @@ class SongsRepositories @Inject constructor(
     private val api: ItunesApi
 ) {
 
-    fun searchItunes(query: String, callback: ResponseReceivedListener<SearchResponse>) {
-        CoroutineScope(Dispatchers.IO).launch {
-            val response = api.search(query)
-            withContext(Dispatchers.Main) {
-                if (response.isSuccessful) {
-                    callback.onSuccess(response.body()!!)
-                } else {
-                    callback.onError(DemoBackendError(message = response.message().toString()))
-                }
+    suspend fun searchItunes(query: String, callback: ResponseReceivedListener<SearchResponse>) {
+        val response = api.search(query)
+        if (response.isSuccessful) {
+            withContext(Dispatchers.Main){
+                callback.onSuccess(response.body()!!)
+            }
+        } else {
+            withContext(Dispatchers.Main){
+                callback.onError(DemoBackendError(message = response.message().toString()))
             }
         }
     }

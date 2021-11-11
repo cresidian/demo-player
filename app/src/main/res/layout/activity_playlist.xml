@@ -61,16 +61,35 @@
                 android:layout_height="wrap_content" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/tvNoRecords"
+
+        <LinearLayout
+            android:id="@+id/noRecordsView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/hint_no_songs"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:gravity="center"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="@+id/rvSongs"
             app:layout_constraintEnd_toEndOf="@+id/rvSongs"
             app:layout_constraintStart_toStartOf="@+id/rvSongs"
-            app:layout_constraintTop_toTopOf="@+id/rvSongs" />
+            app:layout_constraintTop_toTopOf="@+id/rvSongs">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/animation_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/no_records" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hint_no_songs"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

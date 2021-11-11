@@ -68,7 +68,7 @@ class PlaylistActivity : AppCompatActivity() {
 
             }
         })
-        bind.tvNoRecords.setOnClickListener {
+        bind.noRecordsView.setOnClickListener {
             if (bottomSheetBehavior.state == BottomSheetBehavior.STATE_EXPANDED) {
                 hidePlayer()
             } else {
@@ -98,7 +98,7 @@ class PlaylistActivity : AppCompatActivity() {
                             }
                             is PlaylistViewModel.PlaylistViewStates.SetTracks -> {
                                 if (uiState.tracks.isNotEmpty()) {
-                                    bind.tvNoRecords.setVisible(false)
+                                    bind.noRecordsView.setVisible(false)
                                     bind.rvSongs.adapter =
                                         TracksAdapter(uiState.tracks, object : TrackCallback {
                                             override fun onTrackSelected(url: String) {
