@@ -1,4 +1,4 @@
-package com.example.demoplayer.networking.models
+package com.example.demoplayer.models
 
 import com.google.gson.annotations.SerializedName
 

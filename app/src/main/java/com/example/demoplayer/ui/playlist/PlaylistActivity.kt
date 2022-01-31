@@ -8,16 +8,14 @@ import android.os.Looper
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.TextView.OnEditorActionListener
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import com.example.demoplayer.R
-import com.example.demoplayer.adapter.TrackCallback
-import com.example.demoplayer.adapter.TracksAdapter
+import com.example.demoplayer.adapters.TrackCallback
+import com.example.demoplayer.adapters.TracksAdapter
 import com.example.demoplayer.base.setVisible
 import com.example.demoplayer.databinding.ActivityPlaylistBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -97,28 +95,20 @@ class PlaylistActivity : AppCompatActivity() {
                                 bind.loaderView.setVisible(uiState.isLoad)
                             }
                             is PlaylistViewModel.PlaylistViewStates.SetTracks -> {
-                                if (uiState.tracks.isNotEmpty()) {
-                                    bind.noRecordsView.setVisible(false)
-                                    bind.rvSongs.adapter =
-                                        TracksAdapter(uiState.tracks, object : TrackCallback {
-                                            override fun onTrackSelected(url: String) {
-                                                playTrackFromUrl(url)
-                                            }
-                                        })
+                                bind.noRecordsView.setVisible(uiState.tracks.isEmpty())
+                                bind.rvSongs.adapter = if (uiState.tracks.isNotEmpty()) {
+                                    TracksAdapter(uiState.tracks, object : TrackCallback {
+                                        override fun onTrackSelected(url: String) {
+                                            playTrackFromUrl(url)
+                                        }
+                                    })
                                 } else {
-                                    Toast.makeText(
-                                        this@PlaylistActivity,
-                                        getString(R.string.hint_no_songs),
-                                        Toast.LENGTH_SHORT
-                                    ).show()
+                                    null
                                 }
                             }
                             is PlaylistViewModel.PlaylistViewStates.ShowError -> {
-                                Toast.makeText(
-                                    this@PlaylistActivity,
-                                    uiState.message,
-                                    Toast.LENGTH_SHORT
-                                ).show()
+                                bind.noRecordsView.setVisible(true)
+                                bind.rvSongs.adapter = null
                             }
                         }
                     }

@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/rounded_corner_background.xml" value="0.2625" />
+        <entry key="app/src/main/res/layout/activity_currency_converter.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_playlist.xml" value="0.17844202898550723" />
+        <entry key="app/src/main/res/layout/list_item_currency.xml" value="0.25" />
       </map>
     </option>
   </component>

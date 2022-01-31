@@ -1,11 +1,11 @@
-package com.example.demoplayer.adapter
+package com.example.demoplayer.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.demoplayer.databinding.ListItemTrackBinding
-import com.example.demoplayer.networking.models.Track
+import com.example.demoplayer.models.Track
 
 class TracksAdapter(private val tracks: List<Track>, val callback: TrackCallback) :
     RecyclerView.Adapter<TracksAdapter.TrackViewHolder>() {

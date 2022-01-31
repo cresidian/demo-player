@@ -2,7 +2,7 @@ package com.example.demoplayer.di
 
 import android.content.Context
 import com.example.demoplayer.networking.ApiClient
-import com.example.demoplayer.networking.ItunesApi
+import com.example.demoplayer.networking.IApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -23,7 +23,7 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideApiEndpoint(apiClient: Retrofit): ItunesApi =
-        apiClient.create(ItunesApi::class.java)
+    fun provideApiEndpoint(apiClient: Retrofit): IApi =
+        apiClient.create(IApi::class.java)
 
 }

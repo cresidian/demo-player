@@ -1,17 +1,15 @@
 package com.example.demoplayer.repositories
 
-import com.example.demoplayer.networking.ItunesApi
+import com.example.demoplayer.networking.IApi
 import com.example.demoplayer.networking.responses.ResponseReceivedListener
 import com.example.demoplayer.networking.responses.DemoBackendError
 import com.example.demoplayer.networking.responses.SearchResponse
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class SongsRepositories @Inject constructor(
-    private val api: ItunesApi
+class SongsRepository @Inject constructor(
+    private val api: IApi
 ) {
 
     suspend fun searchItunes(query: String, callback: ResponseReceivedListener<SearchResponse>) {
