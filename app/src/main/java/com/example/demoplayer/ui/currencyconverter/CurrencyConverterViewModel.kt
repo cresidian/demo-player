@@ -2,7 +2,7 @@ package com.example.demoplayer.ui.currencyconverter
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.demoplayer.base.Constants
+import com.example.demoplayer.core.Constants
 import com.example.demoplayer.networking.responses.ConversionResponse
 import com.example.demoplayer.networking.responses.CurrenciesResponse
 import com.example.demoplayer.networking.responses.DemoBackendError
@@ -13,7 +13,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel

@@ -10,6 +10,7 @@
     <color name="color_gray_70">#B5969696</color>
     <color name="colorWhiteMedium">#E6E6E6</color>
     <color name="colorBlack_50">#50000000</color>
+    <color name="white50">#50FFFFFF</color>
     <color name="color_gray">#B0B6BF</color>
     <color name="colorBackground">#F9F9FA</color>
 </resources>

@@ -49,5 +49,5 @@
     <dimen name="margin_medium">12dp</dimen>
     <dimen name="margin_small">8dp</dimen>
     <dimen name="margin_narrow">6dp</dimen>
-
+    <dimen name="grid_item_space">8dp</dimen>
 </resources>

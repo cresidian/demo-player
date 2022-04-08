@@ -16,7 +16,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.example.demoplayer.adapters.TrackCallback
 import com.example.demoplayer.adapters.TracksAdapter
-import com.example.demoplayer.base.setVisible
+import com.example.demoplayer.core.setVisible
 import com.example.demoplayer.databinding.ActivityPlaylistBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import dagger.hilt.android.AndroidEntryPoint

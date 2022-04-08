@@ -1,6 +1,6 @@
 package com.example.demoplayer.repositories
 
-import com.example.demoplayer.networking.IApi
+import com.example.demoplayer.networking.Endpoints
 import com.example.demoplayer.networking.responses.ConversionResponse
 import com.example.demoplayer.networking.responses.CurrenciesResponse
 import com.example.demoplayer.networking.responses.DemoBackendError
@@ -11,15 +11,15 @@ import java.io.IOException
 import javax.inject.Inject
 
 class CurrencyRepository @Inject constructor(
-    private val api: IApi
+    private val api: Endpoints
 ) {
     suspend fun getCurrenciesList(
         accessToken: String,
         callback: ResponseReceivedListener<CurrenciesResponse>
     ) {
+        val response = api.getCurrenciesList(accessToken)
         withContext(Dispatchers.Main) {
             try {
-                val response = api.getCurrenciesList(accessToken)
                 if (response.isSuccessful) {
                     callback.onSuccess(response.body()!!)
                 } else {
@@ -37,9 +37,9 @@ class CurrencyRepository @Inject constructor(
         sourceCurrency: String,
         callback: ResponseReceivedListener<ConversionResponse>
     ) {
+        val response = api.getLiveConversions(accessToken, sourceCurrency)
         withContext(Dispatchers.Main) {
             try {
-                val response = api.getLiveConversions(accessToken, sourceCurrency)
                 if (response.isSuccessful) {
                     callback.onSuccess(response.body()!!)
                 } else {

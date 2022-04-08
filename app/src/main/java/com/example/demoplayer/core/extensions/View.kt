@@ -1,4 +1,4 @@
-package com.example.demoplayer.base
+package com.example.demoplayer.core
 
 import android.view.View
 
