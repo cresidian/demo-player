@@ -13,8 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DemoPlayer">
+
         <activity
-            android:name=".ui.currencyconverter.CurrencyConverterActivity"
+            android:name=".ui.currencyconverter.CurrencyCongitverterActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,9 +25,7 @@
         </activity>
         <activity
             android:name=".ui.playlist.PlaylistActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
     </application>
 
 </manifest>

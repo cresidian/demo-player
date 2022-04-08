@@ -65,7 +65,7 @@ class CurrencyConverterActivity : BaseActivity() {
                                 bind.noRecordsView.setVisible(uiState.conversions.isEmpty())
                                 bind.rvCurrencies.adapter = if (uiState.conversions.isNotEmpty()) {
                                     val conversions = uiState.conversions
-                                    CurrenciesAdapter(getSourceAmount(), conversions)
+                                    CurrenciesAdapter(sourceAmount, conversions)
                                 } else {
                                     null
                                 }
@@ -118,9 +118,11 @@ class CurrencyConverterActivity : BaseActivity() {
         }
     }
 
-    private fun getSourceAmount(): Double {
+    private val sourceAmount:Double get() = bind.etAmount.text.toString().toDouble()
+
+    /*private fun getSourceAmount(): Double {
         val amount = bind.etAmount.text.toString()
         return amount.toDouble()
-    }
+    }*/
 
 }
