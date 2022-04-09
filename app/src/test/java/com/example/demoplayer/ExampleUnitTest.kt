@@ -1,14 +1,8 @@
 package com.example.demoplayer
 
-import com.example.demoplayer.ui.currencyconverter.CurrencyConverterActivity
 import org.junit.Test
 
 import org.junit.Assert.*
-import android.R
-
-import android.widget.TextView
-
-
 
 
 /**

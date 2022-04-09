@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DemoPlayer">
         <activity
-            android:name=".ui.gallery.GalleryActivity"
+            android:name=".presentation.gallery.GalleryActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,12 +24,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.currencyconverter.CurrencyConverterActivity"
+            android:name=".presentation.currencyconverter.CurrencyConverterActivity"
             android:exported="true">
 
         </activity>
         <activity
-            android:name=".ui.playlist.PlaylistActivity"
+            android:name=".presentation.playlist.PlaylistActivity"
             android:exported="true" />
 
         <provider

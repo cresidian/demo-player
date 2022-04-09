@@ -1,8 +1,8 @@
 package com.example.demoplayer.di
 
 import android.content.Context
-import com.example.demoplayer.networking.ApiClient
-import com.example.demoplayer.networking.Endpoints
+import com.example.demoplayer.core.networking.ApiClient
+import com.example.demoplayer.data.sources.remote.Endpoints
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

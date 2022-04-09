@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.demoplayer.databinding.ListItemTrackBinding
-import com.example.demoplayer.models.Track
+import com.example.demoplayer.data.models.Track
 
 class TracksAdapter(private val tracks: List<Track>, val callback: TrackCallback) :
     RecyclerView.Adapter<TracksAdapter.TrackViewHolder>() {
