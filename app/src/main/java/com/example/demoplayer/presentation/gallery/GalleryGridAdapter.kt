@@ -10,8 +10,7 @@ import com.example.demoplayer.databinding.GridviewItemImageBinding
 import com.facebook.shimmer.Shimmer
 import com.facebook.shimmer.ShimmerDrawable
 
-class GalleryGridAdapter(
-) : RecyclerView.Adapter<GalleryGridAdapter.GalleryViewHolder>() {
+class GalleryGridAdapter : RecyclerView.Adapter<GalleryGridAdapter.GalleryViewHolder>() {
 
     private lateinit var itemActionClickedListener: (image: Image) -> Unit
     private val images = mutableListOf<Image>()
@@ -35,11 +34,11 @@ class GalleryGridAdapter(
         val image = images[position]
         with(holder) {
             binding.ivImage.load(image.download_url) {
-                size(200,200)
+                size(200, 200)
+                allowHardware(true)
+                placeholder(getShimmerDrawable())
                 memoryCachePolicy(CachePolicy.DISABLED)
                 diskCachePolicy(CachePolicy.ENABLED)
-                placeholder(getShimmerDrawable())
-                allowHardware(true)
             }
             binding.tvAuthor.text = image.author
             binding.ivImage.setOnClickListener {

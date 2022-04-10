@@ -49,19 +49,15 @@ class ApiClient @Inject constructor(
     private fun createHttpClient(): OkHttpClient {
         val dispatcher = Dispatcher().apply { maxRequests = MAX_REQUESTS }
         val clientBuilder = OkHttpClient.Builder().apply {
-            cache(
-                Cache(
-                    applicationContext.cacheDir,
-                    CACHE_SIZE_LIMIT
-                )
-            )
+            cache(Cache(applicationContext.cacheDir, CACHE_SIZE_LIMIT))
             readTimeout(REQUEST_TIMEOUT_MS, TimeUnit.MILLISECONDS)
             writeTimeout(REQUEST_TIMEOUT_MS, TimeUnit.MILLISECONDS)
             retryOnConnectionFailure(true)
             pingInterval(PING_INTERVAL, TimeUnit.SECONDS)
+            addInterceptor(offlineCacheInterceptor)
+            addNetworkInterceptor(onlineCacheInterceptor)
+
             //addInterceptor(connectivityInterceptor)
-            //addInterceptor(offlineCacheInterceptor)
-            //addNetworkInterceptor(onlineCacheInterceptor)
             if (BuildConfig.BUILD_TYPE != BUILD_TYPE_RELEASE) {
                 addNetworkInterceptor(loggingInterceptor)
             }
