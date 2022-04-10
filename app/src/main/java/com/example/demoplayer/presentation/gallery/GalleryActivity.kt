@@ -14,8 +14,8 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import coil.load
+import coil.request.CachePolicy
 import com.example.demoplayer.R
-import com.example.demoplayer.adapters.GalleryGridAdapter
 import com.example.demoplayer.core.activity.BaseActivity
 import com.example.demoplayer.core.extensions.getBitmap
 import com.example.demoplayer.core.setVisible
@@ -105,7 +105,10 @@ class GalleryActivity : BaseActivity() {
         val ibBack = window.findViewById<ImageButton>(R.id.ibBack)
         val ibDownload = window.findViewById<ImageButton>(R.id.ibDownload)
         val ibShare = window.findViewById<ImageButton>(R.id.ibShare)
-        ivFullImage.load(image.download_url)
+        ivFullImage.load(image.download_url){
+            memoryCachePolicy(CachePolicy.DISABLED)
+            diskCachePolicy(CachePolicy.ENABLED)
+        }
         ibBack.setOnClickListener {
             dialog.cancel()
         }

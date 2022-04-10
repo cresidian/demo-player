@@ -1,4 +1,4 @@
-package com.example.demoplayer.adapters
+package com.example.demoplayer.presentation.gallery
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -35,6 +35,8 @@ class GalleryGridAdapter(
         val image = images[position]
         with(holder) {
             binding.ivImage.load(image.download_url) {
+                size(200,200)
+                memoryCachePolicy(CachePolicy.DISABLED)
                 diskCachePolicy(CachePolicy.ENABLED)
                 placeholder(getShimmerDrawable())
                 allowHardware(true)
@@ -62,6 +64,6 @@ class GalleryGridAdapter(
 
     fun setImages(images: List<Image>) {
         this.images.addAll(images)
-        notifyDataSetChanged()
+        notifyItemInserted(this.images.size - 1)
     }
 }

@@ -1,4 +1,4 @@
-package com.example.demoplayer.adapters
+package com.example.demoplayer.presentation.currencyconverter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

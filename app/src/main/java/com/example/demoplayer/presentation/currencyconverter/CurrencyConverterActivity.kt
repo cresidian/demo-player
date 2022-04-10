@@ -12,7 +12,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.demoplayer.R
-import com.example.demoplayer.adapters.CurrenciesAdapter
 import com.example.demoplayer.core.activity.BaseActivity
 import com.example.demoplayer.core.setVisible
 import com.example.demoplayer.databinding.ActivityCurrencyConverterBinding
